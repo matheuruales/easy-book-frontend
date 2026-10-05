@@ -36,13 +36,15 @@ export function DashboardPage() {
 
   return (
     <>
-      <header className="page-header hero-header">
-        <div>
-          <span className="eyebrow">{isClient ? session?.marcaNombre : 'Vista general de la marca'}</span>
-          <h1>{greeting}, {session?.nombre.split(' ')[0]}.</h1>
-          <p>{isClient ? 'Todo listo para cuidar tu próximo corte.' : 'Esto es lo importante de tu operación hoy.'}</p>
+      <header className="dashboard-hero">
+        <img src="/images/navaja-interior.webp" alt="Interior de una sede Navaja preparado para recibir clientes" />
+        <div className="dashboard-hero-shade" />
+        <div className="dashboard-hero-copy">
+          <span className="eyebrow eyebrow--light">{isClient ? session?.marcaNombre : 'Una marca · Todas sus sedes'}</span>
+          <h1>{greeting},<br />{session?.nombre.split(' ')[0]}.</h1>
+          <p>{isClient ? 'Tu próximo buen corte empieza aquí.' : 'La operación de Navaja, clara de un vistazo.'}</p>
         </div>
-        {isClient && <Link className="primary-button compact" to="/app/reservar">Reservar ahora <ArrowUpRight size={17} /></Link>}
+        {isClient && <Link className="primary-button compact hero-action" to="/app/reservar">Reservar ahora <ArrowUpRight size={17} /></Link>}
       </header>
 
       <section className="stats-grid" aria-label="Indicadores">
@@ -69,10 +71,14 @@ export function DashboardPage() {
         </article>
 
         <article className="surface quiet-card">
-          <span className="eyebrow">Ritmo de hoy</span>
-          <h2>{today.length ? `${today.length} momentos para hacer un gran trabajo.` : 'Un día tranquilo por delante.'}</h2>
-          <div className="progress-track"><motion.span initial={{ width: 0 }} animate={{ width: `${Math.min(100, today.length * 18)}%` }} transition={{ type: 'spring', bounce: 0, duration: 0.6 }} /></div>
-          <p>{completed.length} servicios completados en el historial.</p>
+          <img src="/images/navaja-craft.webp" alt="Detalle del trabajo preciso de un barbero Navaja" />
+          <div className="quiet-card-shade" />
+          <div className="quiet-card-copy">
+            <span className="eyebrow eyebrow--light">El oficio, primero</span>
+            <h2>{today.length ? `${today.length} oportunidades para hacer un gran trabajo.` : 'Cada detalle cuenta.'}</h2>
+            <div className="progress-track"><motion.span initial={{ width: 0 }} animate={{ width: `${Math.min(100, today.length * 18)}%` }} transition={{ type: 'spring', bounce: 0, duration: 0.6 }} /></div>
+            <p>{completed.length} servicios completados en el historial.</p>
+          </div>
         </article>
       </section>
     </>

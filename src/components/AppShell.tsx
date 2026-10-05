@@ -34,7 +34,7 @@ export function AppShell() {
   return (
     <div className="app-layout">
       <aside className="sidebar">
-        <div className="brand"><span className="brand-mark"><Scissors size={18} /></span>Navaja</div>
+        <div className="brand"><span className="brand-mark"><Scissors size={18} /></span><span>Navaja<small>Barbershop</small></span></div>
         <nav className="side-nav">
           {items.map(({ to, label, icon: Icon, end }) => (
             <NavLink key={to} to={to} end={end} className={({ isActive }) => isActive ? 'nav-item is-active' : 'nav-item'}>
@@ -51,7 +51,7 @@ export function AppShell() {
       </aside>
 
       <header className="mobile-header">
-        <div className="brand"><span className="brand-mark"><Scissors size={17} /></span>Navaja</div>
+        <div className="brand"><span className="brand-mark"><Scissors size={17} /></span><span>Navaja<small>Barbershop</small></span></div>
         <div>
           <button className="icon-button" onClick={toggleTheme} aria-label={`Usar tema ${theme === 'light' ? 'oscuro' : 'claro'}`}>{theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}</button>
           <button className="icon-button" onClick={logout} aria-label="Cerrar sesión"><LogOut size={18} /></button>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { ArrowRight, CalendarCheck, Check, Moon, Scissors, ShieldCheck, Sparkles, Sun } from 'lucide-react'
+import { ArrowRight, CalendarCheck, Check, Moon, Scissors, ShieldCheck, Sun } from 'lucide-react'
 import { useAuth } from './AuthContext'
 import { useTheme } from '../theme/ThemeContext'
 import { getApiError } from '../../lib/api'
@@ -45,11 +45,12 @@ export function AuthPage() {
   return (
     <main className="auth-page">
       <section className="auth-story" aria-label="Presentación">
+        <img className="auth-story-image" src="/images/navaja-master-barber.webp" alt="Barbero maestro de Navaja en el interior de la barbería" />
         <div className="brand brand--light"><span className="brand-mark"><Scissors size={18} /></span>Navaja</div>
         <div className="story-copy">
-          <span className="eyebrow eyebrow--light"><Sparkles size={14} /> Una marca, todos sus puntos</span>
-          <h1>Una experiencia.<br />En cada sede.</h1>
-          <p>Reservas, equipo y operación de toda la marca en un espacio diseñado para sentirse rápido, claro y natural.</p>
+          <span className="eyebrow eyebrow--light">Desde 2026 · Cúcuta</span>
+          <h1>El oficio<br />bien hecho.</h1>
+          <p>Una sola marca. Cada sede, cada barbero y cada cita conectados por la misma forma de hacer las cosas.</p>
           <div className="story-points">
             <span><CalendarCheck size={15} /> Agenda sin cruces</span>
             <span><ShieldCheck size={15} /> Información protegida</span>
@@ -61,8 +62,6 @@ export function AuthPage() {
           <div><small>Próxima cita</small><strong>Hoy · 4:30 p. m.</strong></div>
           <span className="preview-avatar">AM</span>
         </div>
-        <div className="story-orb story-orb--one" />
-        <div className="story-orb story-orb--two" />
       </section>
 
       <section className="auth-panel">
